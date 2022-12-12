@@ -11,9 +11,9 @@ const portNumber = process.argv[2] ?? 3000;
 app.use(bodyParser.urlencoded({extended:false}));
 
 /* directory where templates will reside */
-app.set("views", path.resolve(__dirname, "templates"));
-app.use("/styles", express.static(__dirname + "/styles"));
-app.use("/images", express.static(__dirname + "/images"));
+app.set("views", "./templates");
+app.use("/styles", express.static("./styles"));
+app.use("/images", express.static("./images"));
 const oneDay = 1000 * 60 * 60 * 24;
 app.use(sessions({
     secret: "pokemonareawsomefhrgfgrfrty84fwir767",
