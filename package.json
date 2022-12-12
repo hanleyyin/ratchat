@@ -1,12 +1,13 @@
 {
-  "name": "summercamp",
+  "name": "ratchat",
   "version": "1.0.0",
   "description": "Final for CMSC335",
-  "main": "summerCampServer.js",
+  "main": "pokemonServer.js",
   "scripts": {
+    "start": "node pokemonServer.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Alex Richman <wrichman@umd.edu>",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.1",
@@ -20,10 +21,7 @@
     "node-fetch": "^3.3.0"
   },
   "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ARichman555/ratchat.git"
-  },
+  "repository": "git+https://github.com/ARichman555/ratchat.git",
   "bugs": {
     "url": "https://github.com/ARichman555/ratchat/issues"
   },
