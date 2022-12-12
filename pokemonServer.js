@@ -7,7 +7,6 @@ const path = require('path')
 const app = express();
 const mongo = require("./mongo");
 const pokemon = require("./pokemon");
-const { request } = require('http');
 const portNumber = process.argv[2] ?? 3000;
 app.use(bodyParser.urlencoded({extended:false}));
 
@@ -30,22 +29,6 @@ app.set("view engine", "ejs");
 
 app.listen(portNumber);
 console.log(`Web server started and running at https://ratchat.onrender.com:${portNumber}`);
-// process.stdout.write("Stop to shutdown the server: ");
-// process.stdin.setEncoding("utf8"); /* encoding */
-// process.stdin.on('readable', () => {  /* on equivalent to addEventListener */
-// 	let dataInput = process.stdin.read();
-// 	if (dataInput !== null) {
-// 		let command = dataInput.trim();
-// 		if (command === "stop") {
-// 			console.log("Shutting down the server");
-//             process.exit(0);  /* exiting */
-//         } else {
-//             /* After invalid command, we cannot type anything else */
-// 			process.stdout.write(`Invalid command: ${command}\n`);
-//         }
-//     }
-//     process.stdin.resume();
-// });
 
 app.get("/", (request, response) => {
     const variables = {
@@ -54,7 +37,7 @@ app.get("/", (request, response) => {
         "errorText" : ``,
         "buttonClass" : `input`
     };
-    response.render("index", variables);
+    response.render("index.ejs", variables);
  });
 
  app.get("/register", (request, response) => {
@@ -65,7 +48,7 @@ app.get("/", (request, response) => {
         "userClass" : "input",
         "userEText" : "",
     };
-    response.render("register", variables);
+    response.render("register.ejs", variables);
  });
 
  app.get("/spriteLink/:pokemon", async (request, response) => {
@@ -86,7 +69,7 @@ app.get("/userPage", async (request, response) => {
             "logoutLink" : `https://ratchat.onrender.com:${portNumber}/logout`
         }
 
-        response.render("userPage", variables);
+        response.render("userPage.ejs", variables);
     }
 });
 
@@ -109,7 +92,7 @@ app.get("/userPage", async (request, response) => {
             "buttonClass" : `error`
         };
 
-        response.render("index", variables);
+        response.render("index.ejs", variables);
     }
  });
 
@@ -138,7 +121,7 @@ app.get("/userPage", async (request, response) => {
             "userClass" : "error",
             "userEText" : `<p id="userEText" class="eText">A user with that username already exists!</p>`,
         };
-        response.render("register", variables);
+        response.render("register.ejs", variables);
     }
  });
 
