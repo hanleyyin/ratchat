@@ -1,5 +1,4 @@
 const { rejects } = require('assert');
-const { ADDRGETNETWORKPARAMS } = require('dns');
 const https = require('https');
 
 async function getPokemonSprite(name) {

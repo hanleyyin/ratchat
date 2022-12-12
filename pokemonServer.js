@@ -29,28 +29,28 @@ app.use(cookieParser());
 app.set("view engine", "ejs");
 
 app.listen(portNumber);
-console.log(`Web server started and running at http://localhost:${portNumber}`);
-process.stdout.write("Stop to shutdown the server: ");
-process.stdin.setEncoding("utf8"); /* encoding */
-process.stdin.on('readable', () => {  /* on equivalent to addEventListener */
-	let dataInput = process.stdin.read();
-	if (dataInput !== null) {
-		let command = dataInput.trim();
-		if (command === "stop") {
-			console.log("Shutting down the server");
-            process.exit(0);  /* exiting */
-        } else {
-            /* After invalid command, we cannot type anything else */
-			process.stdout.write(`Invalid command: ${command}\n`);
-        }
-    }
-    process.stdin.resume();
-});
+console.log(`Web server started and running at https://ratchat.onrender.com:${portNumber}`);
+// process.stdout.write("Stop to shutdown the server: ");
+// process.stdin.setEncoding("utf8"); /* encoding */
+// process.stdin.on('readable', () => {  /* on equivalent to addEventListener */
+// 	let dataInput = process.stdin.read();
+// 	if (dataInput !== null) {
+// 		let command = dataInput.trim();
+// 		if (command === "stop") {
+// 			console.log("Shutting down the server");
+//             process.exit(0);  /* exiting */
+//         } else {
+//             /* After invalid command, we cannot type anything else */
+// 			process.stdout.write(`Invalid command: ${command}\n`);
+//         }
+//     }
+//     process.stdin.resume();
+// });
 
 app.get("/", (request, response) => {
     const variables = {
-        "loginLink" : `http://localhost:${portNumber}/login`,
-        "registerLink" : `http://localhost:${portNumber}/register`,
+        "loginLink" : `https://ratchat.onrender.com:${portNumber}/login`,
+        "registerLink" : `https://ratchat.onrender.com:${portNumber}/register`,
         "errorText" : ``,
         "buttonClass" : `input`
     };
@@ -59,9 +59,9 @@ app.get("/", (request, response) => {
 
  app.get("/register", (request, response) => {
     const variables = {
-        "registerLink" : `http://localhost:${portNumber}/register`,
-        "loginLink" : `http://localhost:${portNumber}/`,
-        "spriteLink" : `http://localhost:${portNumber}/spriteLink`,
+        "registerLink" : `https://ratchat.onrender.com:${portNumber}/register`,
+        "loginLink" : `https://ratchat.onrender.com:${portNumber}/`,
+        "spriteLink" : `https://ratchat.onrender.com:${portNumber}/spriteLink`,
         "userClass" : "input",
         "userEText" : "",
     };
@@ -83,7 +83,7 @@ app.get("/userPage", async (request, response) => {
             "username" : request.session.username,
             "pokemon" : request.session.pokemon,
             "sprite" : request.session.sprite,
-            "logoutLink" : `http://localhost:${portNumber}/logout`
+            "logoutLink" : `https://ratchat.onrender.com:${portNumber}/logout`
         }
 
         response.render("userPage", variables);
@@ -103,8 +103,8 @@ app.get("/userPage", async (request, response) => {
         response.redirect("userPage");
     } else {
         const variables = {
-            "loginLink" : `http://localhost:${portNumber}/login`,
-            "registerLink" : `http://localhost:${portNumber}/register`,
+            "loginLink" : `https://ratchat.onrender.com:${portNumber}/login`,
+            "registerLink" : `https://ratchat.onrender.com:${portNumber}/register`,
             "errorText" : `<p class="errorText">Something went wrong logging in!</p>`,
             "buttonClass" : `error`
         };
@@ -132,9 +132,9 @@ app.get("/userPage", async (request, response) => {
         response.redirect("userPage");
     } else {
         const variables = {
-            "registerLink" : `http://localhost:${portNumber}/register`,
-            "loginLink" : `http://localhost:${portNumber}/`,
-            "spriteLink" : `http://localhost:${portNumber}/spriteLink`,
+            "registerLink" : `https://ratchat.onrender.com:${portNumber}/register`,
+            "loginLink" : `https://ratchat.onrender.com:${portNumber}/`,
+            "spriteLink" : `https://ratchat.onrender.com:${portNumber}/spriteLink`,
             "userClass" : "error",
             "userEText" : `<p id="userEText" class="eText">A user with that username already exists!</p>`,
         };
