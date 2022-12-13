@@ -8,12 +8,15 @@ const app = express();
 const mongo = require("./mongo");
 const pokemon = require("./pokemon");
 const portNumber = process.argv[2] ?? 3000;
+const path = require('path')
+require("dotenv").config({ path: path.resolve(__dirname, '.env') }) 
+const url = process.env.CYCLIC_URL;
 app.use(bodyParser.urlencoded({extended:false}));
 
 /* directory where templates will reside */
-app.set("views", "./templates");
-app.use("/styles", express.static("./styles"));
-app.use("/images", express.static("./images"));
+app.set("views", path.resolve(__dirname, "templates"));
+app.use("/styles", express.static(__dirname + "/styles"));
+app.use("/images", express.static(__dirname + "/images"));
 const oneDay = 1000 * 60 * 60 * 24;
 app.use(sessions({
     secret: "pokemonareawsomefhrgfgrfrty84fwir767",
@@ -28,12 +31,12 @@ app.use(cookieParser());
 app.set("view engine", "ejs");
 
 app.listen(portNumber);
-console.log(`Web server started and running at https://ratchat.onrender.com:${portNumber}`);
+console.log(`Web server started and running at ${url}:${portNumber}`);
 
 app.get("/", (request, response) => {
     const variables = {
-        "loginLink" : `https://ratchat.onrender.com:${portNumber}/login`,
-        "registerLink" : `https://ratchat.onrender.com:${portNumber}/register`,
+        "loginLink" : `${url}:${portNumber}/login`,
+        "registerLink" : `${url}:${portNumber}/register`,
         "errorText" : ``,
         "buttonClass" : `input`
     };
@@ -42,9 +45,10 @@ app.get("/", (request, response) => {
 
  app.get("/register", (request, response) => {
     const variables = {
-        "registerLink" : `https://ratchat.onrender.com:${portNumber}/register`,
-        "loginLink" : `https://ratchat.onrender.com:${portNumber}/`,
-        "spriteLink" : `https://ratchat.onrender.com:${portNumber}/spriteLink`,
+        "registerLink" : `${url}:${portNumber}/register`,
+        "loginLink" : `${url}:${portNumber}/`,
+        "spriteLink" : `${url}:${portNumber}/spriteLink`,
+        "url" : `${url}:${portNumber}`,
         "userClass" : "input",
         "userEText" : "",
     };
@@ -66,7 +70,7 @@ app.get("/userPage", async (request, response) => {
             "username" : request.session.username,
             "pokemon" : request.session.pokemon,
             "sprite" : request.session.sprite,
-            "logoutLink" : `https://ratchat.onrender.com:${portNumber}/logout`
+            "logoutLink" : `${url}:${portNumber}/logout`
         }
 
         response.render("userPage.ejs", variables);
@@ -86,8 +90,8 @@ app.get("/userPage", async (request, response) => {
         response.redirect("userPage");
     } else {
         const variables = {
-            "loginLink" : `https://ratchat.onrender.com:${portNumber}/login`,
-            "registerLink" : `https://ratchat.onrender.com:${portNumber}/register`,
+            "loginLink" : `${url}:${portNumber}/login`,
+            "registerLink" : `${url}:${portNumber}/register`,
             "errorText" : `<p class="errorText">Something went wrong logging in!</p>`,
             "buttonClass" : `error`
         };
@@ -115,9 +119,10 @@ app.get("/userPage", async (request, response) => {
         response.redirect("userPage");
     } else {
         const variables = {
-            "registerLink" : `https://ratchat.onrender.com:${portNumber}/register`,
-            "loginLink" : `https://ratchat.onrender.com:${portNumber}/`,
-            "spriteLink" : `https://ratchat.onrender.com:${portNumber}/spriteLink`,
+            "registerLink" : `${url}:${portNumber}/register`,
+            "loginLink" : `${url}:${portNumber}/`,
+            "spriteLink" : `${url}:${portNumber}/spriteLink`,
+            "url" : `${url}:${portNumber}`,
             "userClass" : "error",
             "userEText" : `<p id="userEText" class="eText">A user with that username already exists!</p>`,
         };
