@@ -8,7 +8,6 @@ const app = express();
 const mongo = require("./mongo");
 const pokemon = require("./pokemon");
 const portNumber = process.argv[2] ?? 3000;
-const path = require('path')
 require("dotenv").config({ path: path.resolve(__dirname, '.env') }) 
 const url = process.env.CYCLIC_URL;
 app.use(bodyParser.urlencoded({extended:false}));
