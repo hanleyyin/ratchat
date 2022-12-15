@@ -9,7 +9,7 @@ const mongo = require("./mongo");
 const pokemon = require("./pokemon");
 const portNumber = process.argv[2] ?? 3000;
 require("dotenv").config({ path: path.resolve(__dirname, '.env') }) 
-const url = process.env.URL;
+const url = "https://ratchat.onrender.com";
 app.use(bodyParser.urlencoded({extended:false}));
 
 /* directory where templates will reside */
