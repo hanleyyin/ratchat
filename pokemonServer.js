@@ -47,7 +47,6 @@ app.get("/", (request, response) => {
         "registerLink" : `${url}/register`,
         "loginLink" : `${url}/`,
         "spriteLink" : `${url}/spriteLink`,
-        "url" : `${url}`,
         "userClass" : "input",
         "userEText" : "",
     };
@@ -121,7 +120,6 @@ app.get("/userPage", async (request, response) => {
             "registerLink" : `${url}/register`,
             "loginLink" : `${url}/`,
             "spriteLink" : `${url}/spriteLink`,
-            "url" : `${url}`,
             "userClass" : "error",
             "userEText" : `<p id="userEText" class="eText">A user with that username already exists!</p>`,
         };
@@ -134,5 +132,5 @@ app.get("/userPage", async (request, response) => {
     request.session.pokemon = undefined;
     request.session.sprite = undefined;
 
-    response.redirect("/");
+    response.redirect("");
  });

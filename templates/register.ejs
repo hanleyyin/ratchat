@@ -23,7 +23,7 @@
         <input type="password" name="password" required/>
         <br>
         <label id="favLabel">Favorite Pokemon: </label><br>
-        <input type="text" id="pokemon" name="pokemon" onfocusout="validatePokemon(<%= url %>)" required/>
+        <input type="text" id="pokemon" name="pokemon" onfocusout="validatePokemon()" required/>
         <br>
         <p id="pokeEText" class="eText"></p>
         <div id="spriteBox">
@@ -44,7 +44,7 @@
         }
 
         function validatePokemon(url) {
-            const url = `${url}/spriteLink/${document.getElementById("pokemon").value}`;
+            const url = `https://ratchat.onrender.com/spriteLink/${document.getElementById("pokemon").value}`;
 
             fetch(url)
             .then((data) => {
