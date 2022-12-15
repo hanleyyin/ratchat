@@ -28,7 +28,7 @@ app.use(cookieParser());
 /* view/templating engine */
 app.set("view engine", "ejs");
 
-app.listen(443);
+app.listen(3000);
 console.log(`Web server started and running at ${url}`);
 
 app.get("/", (request, response) => {
