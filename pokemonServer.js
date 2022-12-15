@@ -131,5 +131,5 @@ app.get("/userPage", async (request, response) => {
     request.session.pokemon = undefined;
     request.session.sprite = undefined;
 
-    response.redirect("");
+    response.redirect("/");
  });
