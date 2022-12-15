@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="/styles/main.css">
+	<link rel="stylesheet" href="/styles/user.css">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+	<title>Ratchat</title>
+</head>
+
+<body>
+	<div id="userBody">
+		<h1>Welcome to <%= username %>'s Page</h1>
+		<h2>Favorite Pokemon: <%= pokemon %></h2>
+		<img id="pokeSprite" src="<%= sprite %>"/>
+		<form action="<%= logoutLink %>" method="post">
+			<input id="logout" type="submit" value="Logout"/>
+		</form>	
+	</div>
+</body>
+
+</html>

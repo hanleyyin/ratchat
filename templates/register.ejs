@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/register.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <title>Ratchat</title>
+</head>
+
+<body>
+    <div id="registerBox">
+    <h2>Create account!</h2>
+
+    <form name="registerForm" onsubmit="return validateForm(this);" action="<%= registerLink %>" method="post">
+        <label>Username: </label><br>
+        <input type="text" name="name" class="<%= userClass %>" required/>
+        <br>
+        <%- userEText %>
+        <label>Password: </label><br>
+        <input type="password" name="password" required/>
+        <br>
+        <label id="favLabel">Favorite Pokemon: </label><br>
+        <input type="text" id="pokemon" name="pokemon" onfocusout="validatePokemon(<%= url %>)" required/>
+        <br>
+        <p id="pokeEText" class="eText"></p>
+        <div id="spriteBox">
+            <img id="pokeSprite" src="/images/NotFound.png"/>
+        </div>
+        <input type="submit" value="Register"/>
+        <p>Already have an account?&nbsp;</p><a href="<%= loginLink %>"> Login here.</a>
+    </form>
+    <script type="text/javascript">
+        function validateForm(form) {
+            if (document.getElementById("pokeSprite").src.includes("NotFound.png")) {
+                document.getElementById("pokeEText").innerHTML = "Please choose a valid pokemon!";
+                document.getElementById("pokemon").className = "error";
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        function validatePokemon(url) {
+            const url = `${url}/spriteLink/${document.getElementById("pokemon").value}`;
+
+            fetch(url)
+            .then((data) => {
+                return data.json()
+            }).then((res) => {
+                if (res.sprite != "Not Found") {
+                    document.getElementById("pokeSprite").src = res.sprite;
+                    document.getElementById("pokeEText").innerHTML = "";
+                    document.getElementById("pokemon").className = "input";
+                } else {
+                    document.getElementById("pokeSprite").src="/images/NotFound.png";
+                }
+            }).catch(e => console.log(e));
+        }
+    </script>
+    </div>
+</body>
+
+</html>

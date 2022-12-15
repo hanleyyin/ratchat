@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="/styles/main.css">
+	<link rel="stylesheet" href="/styles/login.css">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+	<title>Ratchat</title>
+</head>
+
+<body>
+	<div id="loginBox">
+		<img id="logo" src="/images/Female_Rattata.png">
+		<h2>Welcome to Ratchat!</h2>
+		<h3>Sign in to your account</h3>
+		<form name="loginForm" action="<%= loginLink %>" method="post" autocomplete="off">
+				<label>Username:</label><br>
+				<input type="text" name="name" class="<%= buttonClass %>" required/><br>
+				<label>Password:</label><br>
+				<input type="password" name="password" class="<%= buttonClass %>" required><br>
+				<%- errorText %>
+				<input id="login" type="submit" value="Login"/><br>
+			<p>Don't have an account?&nbsp;</p><a href="<%= registerLink %>"> Sign up.</a>
+		</form>
+    </div>
+</body>
+
+</html>

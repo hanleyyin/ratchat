@@ -1,0 +1,15 @@
+#userBody {
+    background-color: white;
+    position: absolute;
+    left: 50%;
+    margin: 2rem 0 0 -12rem;
+    text-align: center;
+}
+
+#pokeSprite {
+    width: 25rem;
+}
+
+#logout {
+    margin-left: 2rem;
+}

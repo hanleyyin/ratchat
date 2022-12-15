@@ -1,0 +1,71 @@
+html {
+    font-family: sans-serif;
+}
+body {
+    background-color: #dfdbd8;
+    position: relative;
+}
+
+input[type=text], input[type=password] {
+    margin: 0.3rem;
+    margin-bottom: 1rem;
+    height: 2rem;
+    width: 18rem;
+    box-sizing: border-box;
+    background: transparent;
+    border-bottom: 1px solid #8f9495;
+    border-top: 0px;
+    border-right: 0px;
+    border-left: 0px;
+    font-size: 14px;
+    outline: none;
+    color: #3d4143; 
+}
+
+input[type=submit] {
+    background-color: rgba(160, 101, 171, 1);
+    width: 8rem;
+    height: 2.5rem;
+    border: none;
+    margin-bottom: 0.7rem;
+    margin-top: 0.5rem;
+    margin-left: -10rem;
+    color: white;
+    border-radius: 6px;
+    font-size: 18px;
+}
+
+input[type=submit]:hover {
+    background-color: rgba(160, 101, 171, 0.8);
+    border: none;
+    width: 7.5rem;
+    height: 2.3rem;
+    margin-bottom: 0.9rem;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+    color: rgb(157, 46, 177, 0.9);
+}
+
+p {
+    color:#8f9495;
+    display: inline-block;
+}
+
+#logo {
+    width: 12rem;
+    padding-top: 1rem;
+}
+
+.error {
+    border: 1px !important;
+    border-style: solid !important;
+    border-color: red !important;
+}
+
+.eText {
+    color: red;
+    position: absolute;
+}
