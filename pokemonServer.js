@@ -29,7 +29,7 @@ app.use(cookieParser());
 app.set("view engine", "ejs");
 
 app.listen(443);
-console.log(`Web server started and running at ${url}:${portNumber}`);
+console.log(`Web server started and running at ${url}`);
 
 app.get("/", (request, response) => {
     const variables = {
