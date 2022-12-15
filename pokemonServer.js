@@ -7,7 +7,6 @@ const path = require('path')
 const app = express();
 const mongo = require("./mongo");
 const pokemon = require("./pokemon");
-const portNumber = process.argv[2] ?? 3000;
 require("dotenv").config({ path: path.resolve(__dirname, '.env') }) 
 const url = "https://ratchat.onrender.com";
 app.use(bodyParser.urlencoded({extended:false}));
@@ -68,7 +67,7 @@ app.get("/userPage", async (request, response) => {
             "username" : request.session.username,
             "pokemon" : request.session.pokemon,
             "sprite" : request.session.sprite,
-            "logoutLink" : `${url}:${portNumber}/logout`
+            "logoutLink" : `${url}/logout`
         }
 
         response.render("userPage.ejs", variables);
