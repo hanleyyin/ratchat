@@ -34,8 +34,8 @@ console.log(`Web server started and running at ${url}:${portNumber}`);
 
 app.get("/", (request, response) => {
     const variables = {
-        "loginLink" : `${url}:${portNumber}/login`,
-        "registerLink" : `${url}:${portNumber}/register`,
+        "loginLink" : `${url}/login`,
+        "registerLink" : `${url}/register`,
         "errorText" : ``,
         "buttonClass" : `input`
     };
@@ -44,10 +44,10 @@ app.get("/", (request, response) => {
 
  app.get("/register", (request, response) => {
     const variables = {
-        "registerLink" : `${url}:${portNumber}/register`,
-        "loginLink" : `${url}:${portNumber}/`,
-        "spriteLink" : `${url}:${portNumber}/spriteLink`,
-        "url" : `${url}:${portNumber}`,
+        "registerLink" : `${url}/register`,
+        "loginLink" : `${url}/`,
+        "spriteLink" : `${url}/spriteLink`,
+        "url" : `${url}`,
         "userClass" : "input",
         "userEText" : "",
     };
@@ -89,8 +89,8 @@ app.get("/userPage", async (request, response) => {
         response.redirect("userPage");
     } else {
         const variables = {
-            "loginLink" : `${url}:${portNumber}/login`,
-            "registerLink" : `${url}:${portNumber}/register`,
+            "loginLink" : `${url}/login`,
+            "registerLink" : `${url}/register`,
             "errorText" : `<p class="errorText">Something went wrong logging in!</p>`,
             "buttonClass" : `error`
         };
@@ -118,10 +118,10 @@ app.get("/userPage", async (request, response) => {
         response.redirect("userPage");
     } else {
         const variables = {
-            "registerLink" : `${url}:${portNumber}/register`,
-            "loginLink" : `${url}:${portNumber}/`,
-            "spriteLink" : `${url}:${portNumber}/spriteLink`,
-            "url" : `${url}:${portNumber}`,
+            "registerLink" : `${url}/register`,
+            "loginLink" : `${url}/`,
+            "spriteLink" : `${url}/spriteLink`,
+            "url" : `${url}`,
             "userClass" : "error",
             "userEText" : `<p id="userEText" class="eText">A user with that username already exists!</p>`,
         };
