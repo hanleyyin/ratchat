@@ -1,0 +1,13 @@
+name: Release
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: my-step
+        run: echo "Hello World!"
